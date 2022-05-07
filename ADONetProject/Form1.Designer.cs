@@ -39,6 +39,7 @@
             this.tbxProductNameAdd = new System.Windows.Forms.TextBox();
             this.btnProductAdd = new System.Windows.Forms.Button();
             this.gbxProductUpdateAndDelete = new System.Windows.Forms.GroupBox();
+            this.btnProductDelete = new System.Windows.Forms.Button();
             this.tbxProductIdUpdate = new System.Windows.Forms.TextBox();
             this.lblIdUpdate = new System.Windows.Forms.Label();
             this.lblStockAmountUpdate = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.lblNameUpdate = new System.Windows.Forms.Label();
             this.tbxProductNameUpdate = new System.Windows.Forms.TextBox();
             this.btnProductUpdate = new System.Windows.Forms.Button();
-            this.btnProductDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProducts)).BeginInit();
             this.gbxProductAdd.SuspendLayout();
             this.gbxProductUpdateAndDelete.SuspendLayout();
@@ -75,7 +75,7 @@
             this.gbxProductAdd.Controls.Add(this.lblNameAdd);
             this.gbxProductAdd.Controls.Add(this.tbxProductNameAdd);
             this.gbxProductAdd.Controls.Add(this.btnProductAdd);
-            this.gbxProductAdd.Location = new System.Drawing.Point(8, 272);
+            this.gbxProductAdd.Location = new System.Drawing.Point(159, 284);
             this.gbxProductAdd.Name = "gbxProductAdd";
             this.gbxProductAdd.Size = new System.Drawing.Size(348, 231);
             this.gbxProductAdd.TabIndex = 1;
@@ -152,12 +152,22 @@
             this.gbxProductUpdateAndDelete.Controls.Add(this.lblNameUpdate);
             this.gbxProductUpdateAndDelete.Controls.Add(this.tbxProductNameUpdate);
             this.gbxProductUpdateAndDelete.Controls.Add(this.btnProductUpdate);
-            this.gbxProductUpdateAndDelete.Location = new System.Drawing.Point(374, 272);
+            this.gbxProductUpdateAndDelete.Location = new System.Drawing.Point(527, 284);
             this.gbxProductUpdateAndDelete.Name = "gbxProductUpdateAndDelete";
             this.gbxProductUpdateAndDelete.Size = new System.Drawing.Size(348, 231);
             this.gbxProductUpdateAndDelete.TabIndex = 2;
             this.gbxProductUpdateAndDelete.TabStop = false;
             this.gbxProductUpdateAndDelete.Text = "Product Update and Delete";
+            // 
+            // btnProductDelete
+            // 
+            this.btnProductDelete.Location = new System.Drawing.Point(242, 155);
+            this.btnProductDelete.Name = "btnProductDelete";
+            this.btnProductDelete.Size = new System.Drawing.Size(100, 38);
+            this.btnProductDelete.TabIndex = 9;
+            this.btnProductDelete.Text = "Delete";
+            this.btnProductDelete.UseVisualStyleBackColor = true;
+            this.btnProductDelete.Click += new System.EventHandler(this.btnProductDelete_Click);
             // 
             // tbxProductIdUpdate
             // 
@@ -232,15 +242,6 @@
             this.btnProductUpdate.Text = "Update";
             this.btnProductUpdate.UseVisualStyleBackColor = true;
             this.btnProductUpdate.Click += new System.EventHandler(this.btnProductUpdate_Click);
-            // 
-            // btnProductDelete
-            // 
-            this.btnProductDelete.Location = new System.Drawing.Point(242, 155);
-            this.btnProductDelete.Name = "btnProductDelete";
-            this.btnProductDelete.Size = new System.Drawing.Size(100, 38);
-            this.btnProductDelete.TabIndex = 9;
-            this.btnProductDelete.Text = "Delete";
-            this.btnProductDelete.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

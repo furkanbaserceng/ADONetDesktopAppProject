@@ -21,7 +21,7 @@ namespace ADONetProject
             tbxProductStockAmountAdd.Clear();
             tbxProductUnitPriceAdd.Clear();
         }
-        private void ClearTextBoxUpdate()
+        private void ClearTextBoxUpdateOrDelete()
         {
             tbxProductIdUpdate.Clear();
             tbxProductNameUpdate.Clear();
@@ -78,10 +78,19 @@ namespace ADONetProject
 
             MessageBox.Show("Product Updated Succesfully!");
             GetDataSource();
-            ClearTextBoxUpdate();
+            ClearTextBoxUpdateOrDelete();
 
         }
 
-        
+        private void btnProductDelete_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value);
+
+            _productDal.Delete(id);
+
+            MessageBox.Show("Product Deleted Successfully!");
+            GetDataSource();
+            ClearTextBoxUpdateOrDelete();
+        }
     }
 }

@@ -77,7 +77,18 @@ namespace ADONetProject.DataAccess
 
         }
 
-        
+        public void Delete(int id)
+        {
+            ConnectionStateControl();
+
+            SqlCommand command = new SqlCommand("delete from Products where Id=@id", _connection);
+            command.Parameters.AddWithValue("@id", id);
+            
+            command.ExecuteNonQuery();
+
+            _connection.Close();
+
+        }
 
         private void ConnectionStateControl()
         {
