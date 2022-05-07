@@ -40,18 +40,31 @@ namespace ADONetProject
         private void btnProductAdd_Click(object sender, EventArgs e)
         {
 
-            _productDal.Add(new Product
+            if(tbxProductNameAdd.Text=="" || tbxProductStockAmountAdd.Text == ""
+                                          || tbxProductUnitPriceAdd.Text == "")
             {
-                ProductName = tbxProductNameAdd.Text,
-                ProductUnitPrice = Convert.ToDecimal(tbxProductUnitPriceAdd.Text),
-                ProductStockAmount = Convert.ToInt32(tbxProductStockAmountAdd.Text)
+                MessageBox.Show("It is not possible to add products!");
+
+            }
+            else
+            {
+
+                _productDal.Add(new Product
+                {
+                    ProductName = tbxProductNameAdd.Text,
+                    ProductUnitPrice = Convert.ToDecimal(tbxProductUnitPriceAdd.Text),
+                    ProductStockAmount = Convert.ToInt32(tbxProductStockAmountAdd.Text)
 
 
-            });
+                });
 
-            MessageBox.Show("Product Added Succesfully!");
-            GetDataSource();
-            ClearTextBoxAdd();
+                MessageBox.Show("Product Added Succesfully!");
+                GetDataSource();
+                ClearTextBoxAdd();
+
+            }
+
+            
         }
 
         private void dgwProducts_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -66,31 +79,54 @@ namespace ADONetProject
         private void btnProductUpdate_Click(object sender, EventArgs e)
         {
 
-            Product product = new Product
+            if (tbxProductNameUpdate.Text == "" || tbxProductStockAmountUpdate.Text == ""
+                                          || tbxProductUnitPriceUpdate.Text == "")
             {
-                Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value),
-                ProductName = tbxProductNameUpdate.Text,
-                ProductUnitPrice = Convert.ToDecimal(tbxProductUnitPriceUpdate.Text),
-                ProductStockAmount = Convert.ToInt32(tbxProductStockAmountUpdate.Text)
-            };
+                MessageBox.Show("It is not possible to update products!");
 
-            _productDal.Update(product);
+            }
 
-            MessageBox.Show("Product Updated Succesfully!");
-            GetDataSource();
-            ClearTextBoxUpdateOrDelete();
+            else
+            {
+                Product product = new Product
+                {
+                    Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value),
+                    ProductName = tbxProductNameUpdate.Text,
+                    ProductUnitPrice = Convert.ToDecimal(tbxProductUnitPriceUpdate.Text),
+                    ProductStockAmount = Convert.ToInt32(tbxProductStockAmountUpdate.Text)
+                };
+
+                _productDal.Update(product);
+
+                MessageBox.Show("Product Updated Succesfully!");
+                GetDataSource();
+                ClearTextBoxUpdateOrDelete();
+            }
+
+            
 
         }
 
         private void btnProductDelete_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value);
 
-            _productDal.Delete(id);
 
-            MessageBox.Show("Product Deleted Successfully!");
-            GetDataSource();
-            ClearTextBoxUpdateOrDelete();
+            if (tbxProductIdUpdate.Text == "")
+            {
+                MessageBox.Show("It is not to possible delete products!");
+            }
+            else
+            {
+                int id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value);
+
+                _productDal.Delete(id);
+
+                MessageBox.Show("Product Deleted Successfully!");
+                GetDataSource();
+                ClearTextBoxUpdateOrDelete();
+            }
+
+            
         }
     }
 }
